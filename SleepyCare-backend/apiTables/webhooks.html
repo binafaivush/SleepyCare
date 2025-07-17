@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: right;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>תיעוד API – Zoom Webhook Endpoint</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>כתובת</th>
+      <th>Payload (דוגמה)</th>
+      <th>תיאור הפעולה</th>
+      <th>תשובה</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>POST</td>
+      <td><code>/api/zoom</code></td>
+      <td>
+        <pre><code>{
+  "event": "meeting.started",
+  "payload": {
+    "object": {
+      "id": 1234567890
+    }
+  }
+}</code></pre>
+      </td>
+      <td>
+        נקודת קצה לקליטת Webhook של Zoom.<br>
+        מתייחס לאירועים:<br>
+        <ul>
+          <li><code>meeting.started</code> – התחלת פגישה</li>
+          <li><code>meeting.ended</code> – סיום פגישה</li>
+        </ul>
+        בעתיד ניתן לעדכן במסד הנתונים סטטוס פגישה בהתאם.
+      </td>
+      <td><code>200 OK</code> – Zoom מקבל אישור שהאירוע נקלט</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

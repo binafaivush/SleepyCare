@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: right;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+    <h2>תיעוד API – תשובות לשאלונים</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>CRUD</th>
+          <th>כתובת</th>
+          <th>פרמטרים ב־URL</th>
+          <th>גוף הבקשה</th>
+          <th>תיאור הפעולה</th>
+          <th>מה מחזירה הפונקציה</th>
+          <th>שגיאות אפשריות</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>POST</td>
+          <td>/api/answers</td>
+          <td>–</td>
+          <td>{ client_id, questionnaire_id, answers }</td>
+          <td>שומר תשובות על שאלון עבור לקוח מסוים ע"י הורה</td>
+          <td><code>201 Created</code>: { message }</td>
+          <td>
+            <code>400</code> – ולידציית קלט נכשלה<br>
+            <code>400</code> – שגיאה בשמירה<br>
+            <code>500</code> – שגיאה בשרת
+          </td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/api/answers/client/:clientId</td>
+          <td><code>clientId</code></td>
+          <td>–</td>
+          <td>מחזיר את כל התשובות של לקוח מסוים</td>
+          <td><code>200 OK</code>: מערך תשובות</td>
+          <td><code>500</code> – שגיאה כללית בקבלת התשובות</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/api/answers/questionnaire/:questionnaireId</td>
+          <td><code>questionnaireId</code></td>
+          <td>–</td>
+          <td>מחזיר את כל התשובות של שאלון מסוים</td>
+          <td><code>200 OK</code>: מערך תשובות</td>
+          <td><code>500</code> – שגיאה כללית בקבלת התשובות</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/api/answers/questionnaire/:questionnaireId/client/:clientId</td>
+          <td><code>questionnaireId, clientId</code></td>
+          <td>–</td>
+          <td>מחזיר את כל התשובות של שאלון מסוים עבור לקוח מסוים</td>
+          <td><code>200 OK</code>: מערך תשובות</td>
+          <td><code>500</code> – שגיאה כללית בקבלת התשובות</td>
+        </tr>
+      </tbody>
+    </table>
+    
+</body>
+</html>

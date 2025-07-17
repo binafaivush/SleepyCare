@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: right;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<h2>תיעוד API -פעולוות מנהל</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>CRUD</th>
+      <th>כתובת</th>
+      <th>פרמטרים ב־URL</th>
+      <th>גוף הבקשה</th>
+      <th>תיאור הפעולה</th>
+      <th>מה מחזירה הפונקציה</th>
+      <th>שגיאות אפשריות</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>GET</td>
+        <td>/api/admin/unapprove</td>
+        <td>–</td>
+        <td>–</td>
+        <td>מחזירה את כל המשתמשים עם סטטוס <code>unapprove</code></td>
+        <td><code>200 OK</code>: { title, users }<br><code>404</code>: אין משתמשים</td>
+        <td><code>404</code> – אין משתמשים<br><code>500</code> – שגיאה כללית</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/api/admin/waiting</td>
+        <td>–</td>
+        <td>–</td>
+        <td>מחזירה את כל המשתמשים עם סטטוס <code>waiting</code></td>
+        <td><code>200 OK</code>: { title, users }<br><code>404</code>: אין משתמשים</td>
+        <td><code>404</code> – אין משתמשים<br><code>500</code> – שגיאה כללית</td>
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>/api/admin/update/:userId/status</td>
+        <td><code>userId</code></td>
+        <td>{ "status": "approve" | "unapprove" | "waiting" }</td>
+        <td>מעדכנת סטטוס של משתמש ע"י אדמין</td>
+        <td><code>200 OK</code>: { message, user }</td>
+        <td>
+          <code>400</code> – ID לא תקין<br>
+          <code>400</code> – סטטוס לא חוקי<br>
+          <code>400</code> – כבר באותו סטטוס<br>
+          <code>404</code> – משתמש לא נמצא
+        </td>
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>/api/admin/unapprove/:userId</td>
+        <td><code>userId</code></td>
+        <td>–</td>
+        <td>משנה סטטוס של יועץ ל־<code>unapprove</code></td>
+        <td><code>200 OK</code>: { message, user }</td>
+        <td>
+          <code>400</code> – ID לא תקין<br>
+          <code>400</code> – כבר לא מאושר<br>
+          <code>404</code> – משתמש לא נמצא<br>
+          <code>500</code> – שגיאה כללית
+        </td>
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>/api/admin/approve/:userId</td>
+        <td><code>userId</code></td>
+        <td>–</td>
+        <td>מאשר יועץ – משנה סטטוס ל־<code>approve</code></td>
+        <td><code>200 OK</code>: { title, user }</td>
+        <td>
+          <code>400</code> – ID לא תקין<br>
+          <code>400</code> – כבר מאושר<br>
+          <code>404</code> – משתמש לא נמצא<br>
+          <code>500</code> – שגיאה כללית
+        </td>
+      </tr>      
+  </tbody>
+</table>
+
+</body>
+</html>

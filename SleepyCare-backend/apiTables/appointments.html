@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>תיעוד API - מערכת פגישות (Zoom)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים ב־URL</th>
+                <th>גוף הבקשה</th>
+                <th>תיאור הפעולה</th>
+                <th>מה מחזירה הפונקציה</th>
+                <th>שגיאות אפשריות</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>POST</td>
+                <td>api/appointments</td>
+                <td>–</td>
+                <td>
+                    {
+                    "creator_id",<br>
+                    "client_id",<br>
+                    "counselor_id",<br>
+                    "date" (DD/MM/YYYY),<br>
+                    "start_time" (HH:mm),<br>
+                    "end_time" (HH:mm)
+                    }
+                </td>
+                <td>יוצר פגישה חדשה ומשלב אותה עם Zoom</td>
+                <td>
+                    <code>201 Created</code>: { message, appointment }<br>
+                    <code>202 Accepted</code>: requires Zoom authentication
+                </td>
+                <td>
+                    <code>400</code> – שדות חובה חסרים<br>
+                    <code>400</code> – פורמט מזהה/תאריך/שעה לא תקין<br>
+                    <code>500</code> – שגיאה בעת יצירת הפגישה או ב־Zoom
+                </td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>/api/appointments/:id</td>
+                <td><code>id</code> – מזהה הפגישה</td>
+                <td>{ שדות לעדכון: תאריך, שעה, סטטוס, וכו' }</td>
+                <td>מעבד עדכון לפגישה קיימת</td>
+                <td><code>200 OK</code>: { message, appointment }</td>
+                <td>
+                    <code>400</code> – מזהה לא תקין<br>
+                    <code>404</code> – הפגישה לא נמצאה<br>
+                    <code>500</code> – שגיאה כללית
+                </td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+
+</body>
+
+</html>

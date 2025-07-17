@@ -1,0 +1,168 @@
+import { commonColor } from "../constants";
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor:commonColor.WHITE,
+    padding: 24,
+  },
+  formWrapper: {
+    width: "100%",
+    maxWidth: 400,
+    backgroundColor: commonColor.WHITE,
+    padding: 24,
+    borderRadius: 12,
+    shadowColor: commonColor.BLACK,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    elevation: 2,
+    alignSelf: "center",
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "700",
+    marginBottom: 24,
+    textAlign: "center",
+    color: commonColor.BLACK,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 8,
+    fontWeight: "600",
+    color: commonColor.BLACK,
+  },
+  input: {
+    backgroundColor: commonColor.WHITE,
+    borderWidth: 1,
+    borderColor: commonColor.PRIMARY_GREEN,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: commonColor.BLACK,
+    marginBottom: 16,
+  },
+  slider: {
+    width: "100%",
+    height: 40,
+    marginTop: 8,
+  },
+  stressValue: {
+    textAlign: "center",
+    fontSize: 16,
+    marginTop: 4,
+    color: commonColor.PRIMARY_GREEN,
+    fontWeight: "600",
+  },
+  button: {
+    backgroundColor: commonColor.PRIMARY_GREEN,
+    marginTop: 32,
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: commonColor.WHITE,
+    fontWeight: "700",
+    fontSize: 18,
+  },
+  infoText: {
+    fontSize: 16,
+    color: commonColor.BLACK,
+    marginBottom: 12,
+    textAlign: "center",
+  },
+  successContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#d2f0ed',
+    padding: 24,
+  },
+  successEmoji: {
+    fontSize: 64,
+    marginBottom: 24,
+  },
+  successTitle: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: commonColor.PRIMARY_GREEN,
+    marginBottom: 12,
+  },
+  successMessage: {
+    fontSize: 18,
+    color: '#3a6b68',
+    textAlign: "center",
+    marginBottom: 20,
+  },
+  summaryText: {
+    fontSize: 16,
+    color: commonColor.BLACK,
+    marginBottom: 4,
+  },
+  editButton: {
+    backgroundColor: '#3a6b68',
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+    marginTop: 12,
+  },
+  editButtonText: {
+    color: commonColor.WHITE,
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  resetButtonStyled: {
+    marginTop: 20,
+    alignSelf: "center",
+    backgroundColor: '#a6d1cc',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 12,
+    shadowColor: commonColor.BLACK,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  resetButtonStyledText: {
+    color: commonColor.BLACK,
+    fontSize: 15,
+    fontWeight: "600",
+  },
+  modeSelector: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginVertical: 12,
+  },
+  modeButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: commonColor.PRIMARY_GREEN,
+    backgroundColor: "#f0f8f5",
+  },
+  modeButtonSelected: {
+    backgroundColor: commonColor.PRIMARY_GREEN,
+  },
+  modeButtonText: {
+    fontSize: 16,
+    color: commonColor.PRIMARY_GREEN,
+    fontWeight: "600",
+  },
+  modeButtonTextSelected: {
+    color: "white",
+  },
+
+});
+export default styles;

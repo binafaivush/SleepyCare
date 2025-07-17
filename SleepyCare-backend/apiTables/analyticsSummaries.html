@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>תיעוד API – ניתוחי קליינט</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים ב־URL</th>
+                <th>גוף הבקשה</th>
+                <th>תיאור הפעולה</th>
+                <th>מה מחזירה הפונקציה</th>
+                <th>שגיאות אפשריות</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>/api/analytics/latest/:clientId</td>
+                <td><code>clientId</code></td>
+                <td>–</td>
+                <td>מחזירה את ניתוח הנתונים האחרון של קליינט מסוים</td>
+                <td><code>200 OK</code>: אובייקט ניתוח אחרון<br><code>404</code>: אין ניתוח</td>
+                <td>
+                    <code>400</code> – חסר clientId<br>
+                    <code>404</code> – לא נמצא ניתוח<br>
+                    <code>500</code> – שגיאה בשרת
+                </td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/api/analytics/:clientId</td>
+                <td><code>clientId</code></td>
+                <td>–</td>
+                <td>מחזירה את כל ניתוחי הנתונים של קליינט מסוים</td>
+                <td><code>200 OK</code>: מערך ניתוחים<br><code>404</code>: אין ניתוחים</td>
+                <td>
+                    <code>400</code> – חסר clientId<br>
+                    <code>404</code> – לא נמצאו ניתוחים<br>
+                    <code>500</code> – שגיאה בשרת
+                </td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/api/analytics/:clientId</td>
+                <td><code>clientId</code></td>
+                <td>{ "start_date": "תאריך התחלה", "end_date": "תאריך סיום" }</td>
+                <td>יוצר ניתוח חדש עבור הקליינט בטווח תאריכים נתון</td>
+                <td><code>200 OK</code>: אובייקט ניתוח חדש<br><code>400/404</code>: לפי תוצאה מהשירות</td>
+                <td>
+                    <code>500</code> – שגיאה פנימית<br>
+                    <code>400</code> – תאריכים לא תקינים או חסרים<br>
+                    <code>404</code> – לא ניתן ליצור ניתוח
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

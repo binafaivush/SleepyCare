@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: right;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>תיעוד API – מודול משתמשים / התחברות</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>כתובת</th>
+                <th>גוף הבקשה</th>
+                <th>תיאור הפעולה</th>
+                <th>תשובה מוצלחת</th>
+                <th>שגיאות אפשריות</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td><code>/api/user/me</code></td>
+                <td>– (דורש טוקן בהרשאות)</td>
+                <td>מחזיר את פרטי המשתמש הנוכחי על בסיס הטוקן</td>
+                <td><code>200 OK</code> – אובייקט משתמש</td>
+                <td>
+                    <code>401</code> – ללא טוקן / טוקן לא תקין<br>
+                    <code>500</code> – שגיאת שרת
+                </td>
+            </tr>
+
+            <tr>
+                <td>POST</td>
+                <td><code>/api/user/login</code></td>
+                <td>
+                    <code>{
+          email: string,<br>
+          password: string
+        }</code>
+                </td>
+                <td>התחברות למערכת על ידי אימייל וסיסמה</td>
+                <td><code>200 OK</code> – משתמש + טוקן</td>
+                <td>
+                    <code>400</code> – חסרים שדות / אימייל לא תקין<br>
+                    <code>401</code> – סיסמה שגויה<br>
+                    <code>403</code> – משתמש לא מאושר<br>
+                    <code>404</code> – משתמש לא נמצא<br>
+                    <code>500</code> – שגיאת שרת
+                </td>
+            </tr>
+
+            <tr>
+                <td>POST</td>
+                <td><code>/api/users/register</code></td>
+                <td>
+                    <code>{
+          full_name: string,<br>
+          email: string,<br>
+          password: string,<br>
+          role: "parent" | "counselor",<br>
+          phone_number?: string
+        }</code>
+                </td>
+                <td>רישום משתמש חדש (הורה או יועץ)</td>
+                <td><code>201 Created</code> – משתמש חדש + טוקן</td>
+                <td>
+                    <code>400</code> – חסרים שדות / סיסמה חלשה / אימייל קיים / תפקיד לא חוקי<br>
+                    <code>500</code> – שגיאה בהוספה למסד או בזום
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

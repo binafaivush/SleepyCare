@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>תיעוד API - הקלטות הורים</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>CRUD</th>
+        <th>כתובת</th>
+        <th>פרמטרים ב־URL</th>
+        <th>גוף הבקשה</th>
+        <th>תיאור הפעולה</th>
+        <th>מה מחזירה הפונקציה</th>
+        <th>שגיאות אפשריות</th>
+        <th>Middlewares</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>POST</td>
+        <td><code>/api/parentAudios/upload</code></td>
+        <td>–</td>
+        <td>
+          <strong>FormData:</strong><br>
+          - <code>client_id</code>: מזהה הילד<br>
+          - <code>file</code>: קובץ אודיו
+        </td>
+        <td>שומר קובץ אודיו מההורה במסד הנתונים</td>
+        <td>
+          <code>200 OK</code> – קובץ נשמר בהצלחה
+        </td>
+        <td>
+          <code>400</code> – שדות חסרים או קובץ לא תקין<br>
+          <code>500</code> – שגיאת שרת בעת שמירה
+        </td>
+        <td>
+          <code>checkParent</code><br>
+          <code>uploadAudio</code>
+        </td>
+      </tr>
+
+      <tr>
+        <td>GET</td>
+        <td><code>/api/parentAudios/stream/:audioId</code></td>
+        <td><code>audioId</code>: מזהה ההקלטה</td>
+        <td>–</td>
+        <td>מאחזר את ההקלטה לפי מזהה ומשדר אותה ללקוח</td>
+        <td>
+          <code>200 OK</code> – אודיו מועבר ישירות עם headers מתאימים<br>
+          Content-Type + Content-Disposition
+        </td>
+        <td>
+          <code>400</code> – מזהה לא תקין<br>
+          <code>404</code> – הקלטה לא נמצאה<br>
+          <code>500</code> – שגיאת שרת
+        </td>
+        <td>
+          <code>checkUser</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>

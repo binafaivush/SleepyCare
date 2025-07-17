@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>תיעוד API - ניהול לקוחות (ילדים)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים ב־URL</th>
+                <th>גוף הבקשה</th>
+                <th>תיאור הפעולה</th>
+                <th>מה מחזירה הפונקציה</th>
+                <th>שגיאות אפשריות</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>/api/clients</td>
+                <td>–</td>
+                <td>–</td>
+                <td>שליפת כל הלקוחות (ילדים)</td>
+                <td><code>200 OK</code>: מערך לקוחות</td>
+                <td>
+                    <code>404</code> – לא נמצאו לקוחות<br>
+                    <code>500</code> – שגיאה כללית
+                </td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/api/clients</td>
+                <td>–</td>
+                <td>
+                    {
+                    "user_id": string,<br>
+                    "counselor_id": string,<br>
+                    "child_name": string,<br>
+                    "child_birthdate": date (ISO),<br>
+                    "notes": string (אופציונלי)
+                    }
+                </td>
+                <td>הוספת לקוח (ילד) חדש</td>
+                <td><code>201 Created</code>: לקוח חדש נוסף</td>
+                <td>
+                    <code>400</code> – שדות חובה חסרים או שגיאה בהוספה
+                </td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>/api/clients/:id</td>
+                <td><code>id</code> – מזהה הלקוח</td>
+                <td>
+                    {
+                    "user_id": string,<br>
+                    "counselor_id": string,<br>
+                    "child_name": string,<br>
+                    "child_birthdate": date (ISO),<br>
+                    "notes": string
+                    }
+                </td>
+                <td>עדכון פרטי לקוח לפי מזהה</td>
+                <td><code>200 OK</code>: לקוח עודכן בהצלחה</td>
+                <td>
+                    <code>400</code> – שדות חסרים<br>
+                    <code>404</code> – לקוח לא נמצא<br>
+                    <code>500</code> – שגיאה כללית
+                </td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td>/api/clients/:id</td>
+                <td><code>id</code> – מזהה הלקוח</td>
+                <td>–</td>
+                <td>מחיקת לקוח לפי מזהה</td>
+                <td><code>200 OK</code>: פרטי הלקוח שנמחק</td>
+                <td>
+                    <code>400</code> – מזהה לא תקין או שגיאה<br>
+                    <code>404</code> – לקוח לא נמצא
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

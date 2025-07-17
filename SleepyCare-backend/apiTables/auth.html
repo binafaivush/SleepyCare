@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>תיעוד API - ניהול הזדהות</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים ב־URL</th>
+                <th>גוף הבקשה</th>
+                <th>תיאור הפעולה</th>
+                <th>מה מחזירה הפונקציה</th>
+                <th>שגיאות אפשריות</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>POST</td>
+                <td>/api/auth/forgot-password</td>
+                <td>–</td>
+                <td>
+                    {
+                    "email": string
+                    }
+                </td>
+                <td>שליחת קישור לאיפוס סיסמה למייל</td>
+                <td>
+                    <code>200 OK</code>: נשלח מייל איפוס<br>
+                    <code>404</code>: משתמש לא נמצא
+                </td>
+                <td>
+                    <code>400</code> – אימייל חסר<br>
+                    <code>500</code> – שגיאה בשליחה או שמירה
+                </td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/api/auth/reset-password/:token</td>
+                <td><code>token</code> – טוקן האיפוס</td>
+                <td>
+                    {
+                    "newPassword": string
+                    }
+                </td>
+                <td>איפוס סיסמה לפי טוקן</td>
+                <td><code>200 OK</code>: סיסמה אופסה בהצלחה</td>
+                <td>
+                    <code>400</code> – טוקן חסר/לא תקף/פג תוקף<br>
+                    <code>404</code> – משתמש לא נמצא<br>
+                    <code>500</code> – שגיאה כללית
+                </td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/api/auth/change-password</td>
+                <td>–</td>
+                <td>
+                    {
+                    "currentPassword": string,<br>
+                    "newPassword": string
+                    }
+                </td>
+                <td>שינוי סיסמה לאחר התחברות (נדרש טוקן)</td>
+                <td><code>200 OK</code>: סיסמה עודכנה</td>
+                <td>
+                    <code>400</code> – שדות חסרים<br>
+                    <code>401</code> – סיסמה נוכחית שגויה<br>
+                    <code>404</code> – משתמש לא נמצא<br>
+                    <code>500</code> – שגיאה כללית
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

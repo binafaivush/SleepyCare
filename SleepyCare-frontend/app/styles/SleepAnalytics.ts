@@ -1,0 +1,137 @@
+import { StyleSheet } from 'react-native';
+
+export const PRIMARY_COLOR = '#4DB6AC'; // צבע טורקיז דומה לתמונה
+const LIGHT_GRAY_BACKGROUND = '#F7F8FC';
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: LIGHT_GRAY_BACKGROUND,
+        padding: 20,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: PRIMARY_COLOR,
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    pickerContainer: {
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
+        padding: 10,
+        marginBottom: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    dateButton: {
+        backgroundColor: PRIMARY_COLOR,
+        borderRadius: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        alignItems: 'center',
+        marginBottom: 15,
+    },
+    dateButtonText: {
+        color: '#FFFFFF',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    generateButton: {
+        backgroundColor: PRIMARY_COLOR,
+        borderRadius: 10,
+        paddingVertical: 15,
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    generateButtonText: {
+        color: '#FFFFFF',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    resultContainer: {
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
+        padding: 15,
+        marginTop: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    resultTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: PRIMARY_COLOR,
+        marginBottom: 10,
+    },
+    resultText: {
+        fontSize: 16,
+        color: '#333333',
+        marginBottom: 5,
+    },
+    errorText: {
+        color: 'red',
+        textAlign: 'center',
+        marginTop: 10,
+    },
+    dateLabel: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#333333',
+        marginBottom: 10,
+    },
+    webDateInput: {
+        fontSize: 16,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#CCCCCC',
+        borderRadius: 5,
+        marginBottom: 15,
+        backgroundColor: '#FFFFFF',
+    },
+    picker: {
+        backgroundColor: '#FFFFFF', 
+        borderRadius: 10,
+        padding: 10,
+        marginBottom: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    label: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#333333',
+        marginBottom: 10,
+    },
+    analysisContainer: {
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
+        padding: 20,
+        marginTop: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    analysisTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: PRIMARY_COLOR,
+        marginBottom: 10,
+    },
+    analysisText: {
+        fontSize: 16,
+        color: '#333333',
+        marginBottom: 5,
+    },
+});
+
+export default styles;

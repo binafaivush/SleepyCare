@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>תיעוד API - קבלת קוד אישור OAuth מ-Zoom</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>CRUD</th>
+        <th>כתובת</th>
+        <th>פרמטרים ב־URL</th>
+        <th>גוף הבקשה</th>
+        <th>תיאור הפעולה</th>
+        <th>מה מחזירה הפונקציה</th>
+        <th>שגיאות אפשריות</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GET</td>
+        <td>auth/zoom/callbac?code=...</td>
+        <td><code>code</code> – קוד האישור מ־Zoom (Query Param)</td>
+        <td>–</td>
+        <td>קבלת קוד אישור OAuth שנשלח מ־Zoom לאחר הרשאת המשתמש</td>
+        <td>
+          <code>200 OK</code>: מחזיר את הקוד שנשלח מ־Zoom<br>
+          <code>console.log</code> – מדפיס את הקוד לשרת
+        </td>
+        <td>
+          <code>400</code> – חסר קוד אישור
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>

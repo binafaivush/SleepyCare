@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>תיעוד API - תכנים (Resources)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>CRUD</th>
+        <th>כתובת</th>
+        <th>פרמטרים ב־URL</th>
+        <th>גוף הבקשה</th>
+        <th>תיאור הפעולה</th>
+        <th>תשובה מוצלחת</th>
+        <th>שגיאות אפשריות</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>POST</td>
+        <td><code>/api/resources</code></td>
+        <td>–</td>
+        <td>JSON עם שדות משאב (name, description, וכו')</td>
+        <td>יצירת משאב חדש</td>
+        <td><code>201 Created</code> – המשאב שנוצר</td>
+        <td><code>400</code> – ולידציה נכשלה / שגיאה בשמירה</td>
+      </tr>
+
+      <tr>
+        <td>GET</td>
+        <td><code>/api/resources</code></td>
+        <td>–</td>
+        <td>–</td>
+        <td>קבלת רשימת כל המשאבים</td>
+        <td><code>200 OK</code> – מערך של משאבים</td>
+        <td><code>400</code> – שגיאה בשליפה</td>
+      </tr>
+
+      <tr>
+        <td>GET</td>
+        <td><code>/api/resources/:id</code></td>
+        <td><code>id</code>: מזהה משאב</td>
+        <td>–</td>
+        <td>שליפת משאב לפי מזהה</td>
+        <td><code>200 OK</code> – האובייקט של המשאב</td>
+        <td>
+          <code>400</code> – מזהה לא תקין<br>
+          <code>404</code> – משאב לא נמצא
+        </td>
+      </tr>
+
+      <tr>
+        <td>PUT</td>
+        <td><code>/api/resources/:id</code></td>
+        <td><code>id</code>: מזהה משאב</td>
+        <td>JSON עם השדות לעדכון</td>
+        <td>עדכון משאב קיים לפי מזהה</td>
+        <td>
+          <code>200 OK</code> – משאב מעודכן + המשאב הישן
+        </td>
+        <td>
+          <code>400</code> – מזהה לא תקין / שגיאת ולידציה<br>
+          <code>404</code> – משאב לא נמצא<br>
+          <code>500</code> – שגיאת שרת
+        </td>
+      </tr>
+
+      <tr>
+        <td>DELETE</td>
+        <td><code>/api/resources/:id</code></td>
+        <td><code>id</code>: מזהה משאב</td>
+        <td>–</td>
+        <td>מחיקת משאב לפי מזהה</td>
+        <td><code>200 OK</code> – משאב נמחק</td>
+        <td>
+          <code>400</code> – מזהה לא תקין<br>
+          <code>404</code> – לא נמצא<br>
+          <code>500</code> – שגיאת מחיקה
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
