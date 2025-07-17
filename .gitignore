@@ -16,7 +16,7 @@ yarn-error.*
 .cline-instructions.md
 app-example
 
-# === client בלבד ===
+# === frontend בלבד ===
 SleepyCare-frontend/.expo/
 SleepyCare-frontend/web-build/
 SleepyCare-frontend/expo-env.d.ts
@@ -28,6 +28,10 @@ SleepyCare-frontend/*.key
 SleepyCare-frontend/*.mobileprovision
 SleepyCare-frontend/.metro-health-check*
 SleepyCare-frontend/expo-env.d.ts
+SleepyCare-frontend/app/google-services.json
+SleepyCare-frontend/app/firebaseConfig.ts
+SleepyCare-frontend/.vscode/
 
 # === server בלבד ===
-SleepyCare-backend/config/
+SleepyCare-backend/src/config
+SleepyCare-backend/f.json
