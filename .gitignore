@@ -17,16 +17,17 @@ yarn-error.*
 app-example
 
 # === client בלבד ===
-client/.expo/
-client/web-build/
-client/expo-env.d.ts
-client/*.orig.*
-client/*.jks
-client/*.p8
-client/*.p12
-client/*.key
-client/*.mobileprovision
-client/.metro-health-check*
+SleepyCare-frontend/.expo/
+SleepyCare-frontend/web-build/
+SleepyCare-frontend/expo-env.d.ts
+SleepyCare-frontend/*.orig.*
+SleepyCare-frontend/*.jks
+SleepyCare-frontend/*.p8
+SleepyCare-frontend/*.p12
+SleepyCare-frontend/*.key
+SleepyCare-frontend/*.mobileprovision
+SleepyCare-frontend/.metro-health-check*
+SleepyCare-frontend/expo-env.d.ts
 
 # === server בלבד ===
-server/config/
+SleepyCare-backend/config/
