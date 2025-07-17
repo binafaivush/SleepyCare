@@ -30,8 +30,9 @@ SleepyCare-frontend/.metro-health-check*
 SleepyCare-frontend/expo-env.d.ts
 SleepyCare-frontend/app/google-services.json
 SleepyCare-frontend/app/firebaseConfig.ts
-SleepyCare-frontend/.vscode/
+SleepyCare-frontend/android/app/google-services.json
 
 # === server בלבד ===
 SleepyCare-backend/src/config
 SleepyCare-backend/f.json
+SleepyCare-backend/.vscode/
