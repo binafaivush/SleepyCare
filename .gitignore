@@ -1,0 +1,32 @@
+# === כלליים (לשניהם) ===
+node_modules/
+dist/
+build/
+.env
+.env*.local
+.DS_Store
+*.pem
+*.tsbuildinfo
+package-lock.json
+yarn.lock
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.idea/
+.cline-instructions.md
+app-example
+
+# === client בלבד ===
+client/.expo/
+client/web-build/
+client/expo-env.d.ts
+client/*.orig.*
+client/*.jks
+client/*.p8
+client/*.p12
+client/*.key
+client/*.mobileprovision
+client/.metro-health-check*
+
+# === server בלבד ===
+server/config/
