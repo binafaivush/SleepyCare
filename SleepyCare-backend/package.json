@@ -8,7 +8,8 @@
   "license": "ISC",
   "scripts": {
     "regular": "ts-node server.ts",
-    "start": "npx cross-env RESEND_API_KEY=re_AtDEUtN3_5wCGfCxSwcPtjmY1oXihJZjk ts-node src/server.ts",
+    "build": "tsc",
+    "start": "cross-env RESEND_API_KEY=re_AtDEUtN3_5wCGfCxSwcPtjmY1oXihJZjk node dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "check-types": "tsc --noEmit",
     "test": "jest --detectOpenHandles"
