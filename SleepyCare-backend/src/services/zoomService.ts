@@ -5,7 +5,7 @@ import jwt, { Secret, JwtPayload } from 'jsonwebtoken';
 import dotenv from "dotenv"
 import axios from "axios";
 import { error } from "console";
-import { getAccessToken } from "./getAccessTokenService";
+import { getAccessToken } from "./AccessTokenService";
 
 interface ZoomMeetingData {
     
@@ -20,7 +20,7 @@ export const createZoomAppointment = async (creator_id: mongoose.Types.ObjectId,
       // getAccessToken מחזירה את ה-Access Token או URL לאימות
       // כלומר: {access_token: 123, refresh_token: 112 ...} / {authenticate: Url}
       const source = "createMeeting"
-      let response = await getAccessToken(creator_id, source);
+      let response = await getAccessToken(creator_id);
       console.log("accessToken in service: ", response);
       console.log("type of accessToken: ", typeof response);
       

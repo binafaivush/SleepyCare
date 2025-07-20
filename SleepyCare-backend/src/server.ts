@@ -39,6 +39,15 @@ app.use("/api/questionnaire",questionnaireRouter)
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-console.log(`Server is running on port ${port}`);
+const server = app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+server.on('error', (error: NodeJS.ErrnoException) => {
+  if (error.code === 'EADDRINUSE') {
+    console.error(`Port ${port} is already in use.`);
+    process.exit(1);
+  } else {
+    throw error;
+  }
 });

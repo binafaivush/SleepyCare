@@ -9,7 +9,7 @@ export const errorHandler = (err: unknown, _req: Request, res: Response, _next: 
   logger.error(`Unhandled error: ${errorMessage}`);
 
   if (err instanceof ZodError) {
-    res.status(400).json({ error: 'Validation failed', details: err.errors });
+    res.status(400).json({ error: 'Validation failed', details: err?.issues });
   } else if (err instanceof ValidationError) {
     res.status(400).json({ error: err.message });
   } else if (err instanceof NotFoundError) {
