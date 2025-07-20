@@ -9,7 +9,7 @@
   "scripts": {
     "regular": "ts-node server.ts",
     "build": "tsc",
-    "start": "npx cross-env RESEND_API_KEY=re_AtDEUtN3_5wCGfCxSwcPtjmY1oXihJZjk ts-node src/server.ts",
+    "start":"npx cross-env RESEND_API_KEY=re_AtDEUtN3_5wCGfCxSwcPtjmY1oXihJZjk node dist/src/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "check-types": "tsc --noEmit",
     "test": "jest --detectOpenHandles"
